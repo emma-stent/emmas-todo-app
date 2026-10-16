@@ -1,8 +1,11 @@
-import type {Todo} from "../types.ts";
+import type { TodoItemProps } from "../types.ts";
 
-const TodoItem= ({todo}: {todo: Todo}) => {
+const TodoItem= ({todo, toggleCompleted}: TodoItemProps) => {
     return (
-        <li>{todo.text}</li>
+        <>
+            <li style={{textDecoration: todo.completed ? "line-through" : "none"}}>{todo.text}</li>
+            <input type={"checkbox"} checked={todo.completed} onChange={()=>toggleCompleted(todo.id)}></input>
+        </>
     )
 }
 

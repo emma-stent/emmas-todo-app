@@ -1,8 +1,8 @@
 import TodoItem from "./TodoItem.tsx";
-import type {Todo} from "../types.ts";
+import type {TodoListProps} from "../types.ts";
 
-const TodoList = ({todos}: {todos: Todo[]}) => {
-    return (<ul>{todos.map(todo => <TodoItem key ={todo.id} todo={todo}/>)}</ul>)
+const TodoList = ({todos, toggleCompleted}: TodoListProps) => {
+    return (<ul>{todos.map(todo => <TodoItem key ={todo.id} todo={todo} toggleCompleted={toggleCompleted}/>)}</ul>)
 }
 
 export default TodoList;

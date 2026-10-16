@@ -6,7 +6,7 @@ const AddTodo = ({setTodos}:{setTodos:any}) => {
     return (
         <form onSubmit={(e: React.SyntheticEvent)=> e.preventDefault()}>
             <input type="text" onChange={(e) => setTodoText(e.target.value)} value={todoText}></input>
-            <button type="submit" onClick = {() => setTodos((prev:Todo[]) => [...prev, {id: 1, text: todoText, completed: false}])}>Add todo</button>
+            <button type="submit" onClick = {() => setTodos((prev:Todo[]) => [...prev, {id: self.crypto.randomUUID(), text: todoText, completed: false}])}>Add todo</button>
         </form>
     )
 }
