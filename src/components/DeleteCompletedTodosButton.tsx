@@ -1,6 +1,6 @@
 import type {Todo} from "../types.ts";
 
-const DeleteCompletedTodosButton = ({ todos, deleteCompletedTodos}: {todos: Todo[], deleteCompletedTodos:any} ) => {
+const DeleteCompletedTodosButton = ({ todos, deleteCompletedTodos}: {todos: Todo[], deleteCompletedTodos: () => void} ) => {
     return (<button onClick={deleteCompletedTodos} disabled={!todos.some(todo => todo.completed)}>Delete Completed Tasks</button>)
 }
 
