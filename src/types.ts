@@ -17,3 +17,8 @@ export type TodoItemProps = {
     toggleCompleted: (id: string) => void;
     saveEditedTodo: (id: string, newText: string) => void;
 }
+
+export type FilterTaskButtonsProps = {
+    filterChoice: FilterOptions;
+    setFilterChoice: (filterChoice: FilterOptions) => void
+}

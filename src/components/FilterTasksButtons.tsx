@@ -1,4 +1,4 @@
-import type {FilterOptions} from "../types.ts";
+import type {FilterOptions, FilterTaskButtonsProps} from "../types.ts";
 
 const filters: { value: FilterOptions, label: string }[] = [
     { value: "All", label: "Show all tasks" },
@@ -6,7 +6,7 @@ const filters: { value: FilterOptions, label: string }[] = [
     { value: "Completed", label: "Show completed tasks" },
 ];
 
-const FilterTasksButtons = ({filterChoice, setFilterChoice}: {filterChoice: FilterOptions, setFilterChoice: (filterChoice: FilterOptions) => void}) => {
+const FilterTasksButtons = ({ filterChoice, setFilterChoice }: FilterTaskButtonsProps) => {
     return (
         filters.map(filter =>
             <button
