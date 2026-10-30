@@ -7,9 +7,11 @@ export type Todo = {
 export type TodoListProps = {
     todos: Todo[];
     toggleCompleted: (id: string) => void;
+    saveEditedTodo: (id: string, newText: string) => void;
 }
 
 export type TodoItemProps = {
     todo: Todo;
     toggleCompleted: (id: string) => void;
+    saveEditedTodo: (id: string, newText: string) => void;
 }

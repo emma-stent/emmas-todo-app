@@ -9,6 +9,11 @@ function App() {
     const toggleCompleted = (id: string) => {
         setTodos(prev => prev.map((todo) => todo.id===id ? ({...todo, completed: !todo.completed}) : todo));
     }
+
+    const saveEditedTodo = (id: string, newText: string) => {
+        setTodos(prev => prev.map((todo) => todo.id===id ? ({...todo, text: newText}) : todo));
+    }
+
     const deleteCompletedTodos = () => {
         setTodos(prev => prev.filter((todo) => !todo.completed))
     }
@@ -16,7 +21,7 @@ function App() {
     return (
         <>
             <AddTodo setTodos={setTodos}/>
-            <TodoList todos={todos} toggleCompleted={toggleCompleted}/>
+            <TodoList todos={todos} toggleCompleted={toggleCompleted} saveEditedTodo={saveEditedTodo}/>
             <DeleteCompletedTodosButton todos={todos} deleteCompletedTodos={deleteCompletedTodos} />
         </>
     )
