@@ -4,8 +4,10 @@ export type Todo = {
     completed: boolean;
 }
 
+export type FilterOptions = "All" | "Uncompleted" | "Completed";
+
 export type TodoListProps = {
-    todos: Todo[];
+    visibleTodos: Todo[];
     toggleCompleted: (id: string) => void;
     saveEditedTodo: (id: string, newText: string) => void;
 }
