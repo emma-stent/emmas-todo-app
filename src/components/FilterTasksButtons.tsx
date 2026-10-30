@@ -1,17 +1,22 @@
 import type {FilterOptions} from "../types.ts";
 
+const filters: { value: FilterOptions, label: string }[] = [
+    { value: "All", label: "Show all tasks" },
+    { value: "Uncompleted", label: "Show uncompleted tasks" },
+    { value: "Completed", label: "Show completed tasks" },
+];
+
 const FilterTasksButtons = ({filterChoice, setFilterChoice}: {filterChoice: FilterOptions, setFilterChoice: (filterChoice: FilterOptions) => void}) => {
     return (
-        <>
+        filters.map(filter =>
             <button
+                key = {filter.value}
                 onClick={()=>
-                    setFilterChoice("All")}
-                style={{backgroundColor: filterChoice === "All" ? "blue" : "white", color: filterChoice === "All" ? "white" : "black"}}>
-                Show all tasks
+                    setFilterChoice(filter.value)}
+                style={{backgroundColor: filterChoice === filter.value ? "blue" : "white", color: filterChoice === filter.value ? "white" : "black"}}>
+                {filter.label}
             </button>
-            <button onClick={()=> setFilterChoice("Uncompleted")} style={{backgroundColor: filterChoice === "Uncompleted" ? "blue" : "white", color: filterChoice === "Uncompleted" ? "white" : "black"}}>Show uncompleted tasks</button>
-            <button onClick={()=> setFilterChoice("Completed")} style={{backgroundColor: filterChoice === "Completed" ? "blue" : "white", color: filterChoice === "Completed" ? "white" : "black"}}>Show completed tasks</button>
-        </>
+        )
     )
 }
 export default FilterTasksButtons;
